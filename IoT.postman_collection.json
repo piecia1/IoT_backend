@@ -1,0 +1,202 @@
+{
+	"id": "87c34b20-5920-903b-2b2e-e73f0738fda9",
+	"name": "IoT",
+	"description": "",
+	"order": [
+		"d82364b7-770c-5592-b12c-b312c0747a4e",
+		"f106759f-d167-d1ed-6dcb-5b0bb8b6b9cd",
+		"9989bca1-3fe8-205e-790e-eaabadcafb95",
+		"701ad99e-18b0-80b4-8e75-e5637105d365",
+		"f3e9ad0b-7931-9717-7879-c032d1aff8e2"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1543333503341,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "701ad99e-18b0-80b4-8e75-e5637105d365",
+			"headers": "Authentication: 769944259\nAuthorization: Basic dXNlcjE6\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Authentication",
+					"value": "769944259",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Basic dXNlcjE6",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://192.168.1.104:5000/sterr",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "PUT",
+			"collectionId": "87c34b20-5920-903b-2b2e-e73f0738fda9",
+			"data": [],
+			"dataMode": "raw",
+			"name": "http://192.168.1.104:5000/sterr",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1543358726344,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"led1\":\"false\",\n\t\"led2\":\"false\",\n\t\"led3\":\"false\",\n\t\"servo\":\"70\"\n}"
+		},
+		{
+			"id": "9989bca1-3fe8-205e-790e-eaabadcafb95",
+			"headers": "Authorization: Basic dXNlcjE6\nAuthentication: 769944259\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Basic dXNlcjE6",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authentication",
+					"value": "769944259",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://192.168.1.104:5000/sensors",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "87c34b20-5920-903b-2b2e-e73f0738fda9",
+			"data": null,
+			"dataMode": "params",
+			"name": "http://192.168.1.104:5000/sensors",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1543358713985,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "d82364b7-770c-5592-b12c-b312c0747a4e",
+			"headers": "Authorization: Basic dXNlcjE6\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Basic dXNlcjE6",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://192.168.1.104:5000/addUser",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "87c34b20-5920-903b-2b2e-e73f0738fda9",
+			"data": null,
+			"dataMode": "params",
+			"name": "http://192.168.1.104:5000/addUser",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1543358690291,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "f106759f-d167-d1ed-6dcb-5b0bb8b6b9cd",
+			"headers": "Authorization: Basic dXNlcjE6cGFzc3dvcmQ=\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Basic dXNlcjE6cGFzc3dvcmQ=",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://192.168.1.104:5000/checkUser",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "87c34b20-5920-903b-2b2e-e73f0738fda9",
+			"data": null,
+			"dataMode": "params",
+			"name": "http://192.168.1.104:5000/checkUser",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1543358705571,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "f3e9ad0b-7931-9717-7879-c032d1aff8e2",
+			"headers": "Authentication: 769944259\nAuthorization: Basic dXNlcjE6\n",
+			"headerData": [
+				{
+					"key": "Authentication",
+					"value": "769944259",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Basic dXNlcjE6",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://192.168.1.104:5000/dateRange?startTime=Tue, 27+Nov+2018+22:54:59+GMT",
+			"queryParams": [
+				{
+					"key": "startTime",
+					"value": "Tue, 27+Nov+2018+22:54:59+GMT",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "87c34b20-5920-903b-2b2e-e73f0738fda9",
+			"data": null,
+			"dataMode": "params",
+			"name": "http://192.168.1.104:5000/dateRange?startTime=Tue, 27+Nov+2018+22:54:59+GMT",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1543358732701,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		}
+	]
+}
