@@ -7,7 +7,10 @@
 		"f106759f-d167-d1ed-6dcb-5b0bb8b6b9cd",
 		"9989bca1-3fe8-205e-790e-eaabadcafb95",
 		"701ad99e-18b0-80b4-8e75-e5637105d365",
-		"f3e9ad0b-7931-9717-7879-c032d1aff8e2"
+		"f3e9ad0b-7931-9717-7879-c032d1aff8e2",
+		"ee411f13-d169-321f-ef3f-851d5fd8e1a1",
+		"daa70799-2e6a-e902-3729-15e580a5983c",
+		"af32d151-2c4d-4c6e-30ad-e39b76b79115"
 	],
 	"folders": [],
 	"folders_order": [],
@@ -17,17 +20,17 @@
 	"requests": [
 		{
 			"id": "701ad99e-18b0-80b4-8e75-e5637105d365",
-			"headers": "Authentication: 769944259\nAuthorization: Basic dXNlcjE6\nContent-Type: application/json\n",
+			"headers": "Authentication: 1965158804\nAuthorization: Basic dXNlcjI6\nContent-Type: application/json\n",
 			"headerData": [
 				{
 					"key": "Authentication",
-					"value": "769944259",
+					"value": "1965158804",
 					"description": "",
 					"enabled": true
 				},
 				{
 					"key": "Authorization",
-					"value": "Basic dXNlcjE6",
+					"value": "Basic dXNlcjI6",
 					"description": "",
 					"enabled": true
 				},
@@ -40,43 +43,104 @@
 			],
 			"url": "http://192.168.1.104:5000/sterr",
 			"queryParams": [],
+			"preRequestScript": null,
 			"pathVariables": {},
 			"pathVariableData": [],
-			"preRequestScript": null,
 			"method": "PUT",
-			"collectionId": "87c34b20-5920-903b-2b2e-e73f0738fda9",
 			"data": [],
 			"dataMode": "raw",
-			"name": "http://192.168.1.104:5000/sterr",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1543358726344,
-			"version": 2,
-			"responses": [],
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"rawModeData": "{\n\t\"led1\":\"false\",\n\t\"led2\":\"false\",\n\t\"led3\":\"false\",\n\t\"servo\":\"70\"\n}"
+			"time": 1543400770305,
+			"name": "http://192.168.1.104:5000/sterr",
+			"description": "",
+			"collectionId": "87c34b20-5920-903b-2b2e-e73f0738fda9",
+			"responses": [],
+			"rawModeData": "{\n\t\"led1\":\"false\",\n\t\"led2\":\"false\",\n\t\"led3\":\"false\",\n\t\"servo\":\"80\"\n}"
 		},
 		{
 			"id": "9989bca1-3fe8-205e-790e-eaabadcafb95",
-			"headers": "Authorization: Basic dXNlcjE6\nAuthentication: 769944259\n",
+			"headers": "Authorization: Basic dXNlcjI6\nAuthentication: 1965158804\n",
 			"headerData": [
 				{
 					"key": "Authorization",
-					"value": "Basic dXNlcjE6",
+					"value": "Basic dXNlcjI6",
 					"description": "",
 					"enabled": true
 				},
 				{
 					"key": "Authentication",
-					"value": "769944259",
+					"value": "1965158804",
 					"description": "",
 					"enabled": true
 				}
 			],
 			"url": "http://192.168.1.104:5000/sensors",
 			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1543400664735,
+			"name": "http://192.168.1.104:5000/sensors",
+			"description": "",
+			"collectionId": "87c34b20-5920-903b-2b2e-e73f0738fda9",
+			"responses": []
+		},
+		{
+			"id": "af32d151-2c4d-4c6e-30ad-e39b76b79115",
+			"headers": "Authentication: 1965158804\nAuthorization: Basic dXNlcjI6\n",
+			"headerData": [
+				{
+					"key": "Authentication",
+					"value": "1965158804",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Basic dXNlcjI6",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://192.168.1.104:5000/chooseSensorsDate?startTime=Wed, 28+Nov+2018+11:20:59+GMT&dampness&distance&date",
+			"queryParams": [
+				{
+					"key": "startTime",
+					"value": "Wed, 28+Nov+2018+11:20:59+GMT",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "dampness",
+					"value": "",
+					"equals": false,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "distance",
+					"value": "",
+					"equals": false,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "date",
+					"value": "",
+					"equals": false,
+					"description": "",
+					"enabled": true
+				}
+			],
 			"pathVariables": {},
 			"pathVariableData": [],
 			"preRequestScript": null,
@@ -84,10 +148,10 @@
 			"collectionId": "87c34b20-5920-903b-2b2e-e73f0738fda9",
 			"data": null,
 			"dataMode": "params",
-			"name": "http://192.168.1.104:5000/sensors",
+			"name": "http://192.168.1.104:5000/chooseSensorsDate?startTime=Wed, 28+Nov+2018+11:20:59+GMT&dampness&distance&date",
 			"description": "",
 			"descriptionFormat": "html",
-			"time": 1543358713985,
+			"time": 1543401412121,
 			"version": 2,
 			"responses": [],
 			"tests": null,
@@ -96,17 +160,80 @@
 		},
 		{
 			"id": "d82364b7-770c-5592-b12c-b312c0747a4e",
-			"headers": "Authorization: Basic dXNlcjE6\n",
+			"headers": "Authorization: Basic dXNlcjI6cGFzc3dvcmQ=\n",
 			"headerData": [
 				{
 					"key": "Authorization",
-					"value": "Basic dXNlcjE6",
+					"value": "Basic dXNlcjI6cGFzc3dvcmQ=",
 					"description": "",
 					"enabled": true
 				}
 			],
 			"url": "http://192.168.1.104:5000/addUser",
 			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1543400315396,
+			"name": "http://192.168.1.104:5000/addUser",
+			"description": "",
+			"collectionId": "87c34b20-5920-903b-2b2e-e73f0738fda9",
+			"responses": []
+		},
+		{
+			"id": "daa70799-2e6a-e902-3729-15e580a5983c",
+			"headers": "Authentication: 1965158804\nAuthorization: Basic dXNlcjI6\n",
+			"headerData": [
+				{
+					"key": "Authentication",
+					"value": "1965158804",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Basic dXNlcjI6",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://192.168.1.104:5000/chooseSensorsN?many=10&dampness&distance&temperature",
+			"queryParams": [
+				{
+					"key": "many",
+					"value": "10",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "dampness",
+					"value": "",
+					"equals": false,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "distance",
+					"value": "",
+					"equals": false,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "temperature",
+					"value": "",
+					"equals": false,
+					"description": "",
+					"enabled": true
+				}
+			],
 			"pathVariables": {},
 			"pathVariableData": [],
 			"preRequestScript": null,
@@ -114,10 +241,10 @@
 			"collectionId": "87c34b20-5920-903b-2b2e-e73f0738fda9",
 			"data": null,
 			"dataMode": "params",
-			"name": "http://192.168.1.104:5000/addUser",
+			"name": "http://192.168.1.104:5000/chooseSensorsN?many=10&dampness&distance&temperature",
 			"description": "",
 			"descriptionFormat": "html",
-			"time": 1543358690291,
+			"time": 1543401248394,
 			"version": 2,
 			"responses": [],
 			"tests": null,
@@ -125,78 +252,123 @@
 			"helperAttributes": {}
 		},
 		{
+			"id": "ee411f13-d169-321f-ef3f-851d5fd8e1a1",
+			"headers": "Authentication: 1965158804\nAuthorization: Basic dXNlcjI6\n",
+			"headerData": [
+				{
+					"key": "Authentication",
+					"value": "1965158804",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Basic dXNlcjI6",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://192.168.1.104:5000/sensorsN?many=3",
+			"queryParams": [
+				{
+					"key": "many",
+					"value": "3",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1543401076895,
+			"name": "http://192.168.1.104:5000/sensorsN?many=3",
+			"description": "",
+			"collectionId": "87c34b20-5920-903b-2b2e-e73f0738fda9",
+			"responses": []
+		},
+		{
 			"id": "f106759f-d167-d1ed-6dcb-5b0bb8b6b9cd",
-			"headers": "Authorization: Basic dXNlcjE6cGFzc3dvcmQ=\n",
+			"headers": "Authorization: Basic dXNlcjI6cGFzc3dvcmQ=\n",
 			"headerData": [
 				{
 					"key": "Authorization",
-					"value": "Basic dXNlcjE6cGFzc3dvcmQ=",
+					"value": "Basic dXNlcjI6cGFzc3dvcmQ=",
 					"description": "",
 					"enabled": true
 				}
 			],
 			"url": "http://192.168.1.104:5000/checkUser",
 			"queryParams": [],
+			"preRequestScript": null,
 			"pathVariables": {},
 			"pathVariableData": [],
-			"preRequestScript": null,
 			"method": "GET",
-			"collectionId": "87c34b20-5920-903b-2b2e-e73f0738fda9",
 			"data": null,
 			"dataMode": "params",
-			"name": "http://192.168.1.104:5000/checkUser",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1543358705571,
-			"version": 2,
-			"responses": [],
 			"tests": null,
 			"currentHelper": "normal",
-			"helperAttributes": {}
+			"helperAttributes": {},
+			"time": 1543400312170,
+			"name": "http://192.168.1.104:5000/checkUser",
+			"description": "",
+			"collectionId": "87c34b20-5920-903b-2b2e-e73f0738fda9",
+			"responses": []
 		},
 		{
 			"id": "f3e9ad0b-7931-9717-7879-c032d1aff8e2",
-			"headers": "Authentication: 769944259\nAuthorization: Basic dXNlcjE6\n",
+			"headers": "Authentication: 1965158804\nAuthorization: Basic dXNlcjI6\n",
 			"headerData": [
 				{
 					"key": "Authentication",
-					"value": "769944259",
+					"value": "1965158804",
 					"description": "",
 					"enabled": true
 				},
 				{
 					"key": "Authorization",
-					"value": "Basic dXNlcjE6",
+					"value": "Basic dXNlcjI6",
 					"description": "",
 					"enabled": true
 				}
 			],
-			"url": "http://192.168.1.104:5000/dateRange?startTime=Tue, 27+Nov+2018+22:54:59+GMT",
+			"url": "http://192.168.1.104:5000/dateRange?startTime=Wed,+28+Nov+2018+11:28:02+GMT&endTime=Wed,+28+Nov+2018+11:30:02+GMT",
 			"queryParams": [
 				{
 					"key": "startTime",
-					"value": "Tue, 27+Nov+2018+22:54:59+GMT",
+					"value": "Wed,+28+Nov+2018+11:28:02+GMT",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "endTime",
+					"value": "Wed,+28+Nov+2018+11:30:02+GMT",
 					"equals": true,
 					"description": "",
 					"enabled": true
 				}
 			],
+			"preRequestScript": null,
 			"pathVariables": {},
 			"pathVariableData": [],
-			"preRequestScript": null,
 			"method": "GET",
-			"collectionId": "87c34b20-5920-903b-2b2e-e73f0738fda9",
 			"data": null,
 			"dataMode": "params",
-			"name": "http://192.168.1.104:5000/dateRange?startTime=Tue, 27+Nov+2018+22:54:59+GMT",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1543358732701,
-			"version": 2,
-			"responses": [],
 			"tests": null,
 			"currentHelper": "normal",
-			"helperAttributes": {}
+			"helperAttributes": {},
+			"time": 1543400924370,
+			"name": "http://192.168.1.104:5000/dateRange?startTime=Tue, 27+Nov+2018+22:54:59+GMT",
+			"description": "",
+			"collectionId": "87c34b20-5920-903b-2b2e-e73f0738fda9",
+			"responses": []
 		}
 	]
 }
