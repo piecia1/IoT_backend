@@ -66,7 +66,8 @@ def set_allow_origin(resp):
 
 
 
-
+"""Dodanie użytkownika
+"""
 @app.route('/addUser', methods=['GET'])
 @cross_origin(origin='*')
 def addUser():
@@ -106,6 +107,8 @@ def addUser():
     
     return jsonify({'info' : 'dodano nowego użytkownika'})
 
+"""Sprawdzenie użytkownika
+"""
 @app.route('/checkUser', methods=['GET'])
 @cross_origin(origin='*')
 def checkUser():
@@ -147,6 +150,8 @@ def checkUser():
         db.close()
         return jsonify({'info' : 'Nieznany błąd'})
 
+"""Zwraca ostatni wiersz z tabeli senosrs
+"""
 @app.route('/sensors', methods=['GET'])
 @cross_origin(origin='*')
 def sensors():
@@ -179,7 +184,8 @@ def sensors():
                     'lightIntensity1':data[3],'lightIntensity2':data[4],'distance':data[5],
                     'date':data[6]})
     
-
+"""Wysterowanie pinów
+"""
 @app.route('/sterr', methods=['PUT'])
 @cross_origin(origin='*')
 def sterr():
@@ -245,6 +251,8 @@ def sterr():
             wiringpi.pwmWrite(18, value)
     return jsonify({'info':'Piny ustawione'})
 
+"""Wybór danych z zakresu daty
+"""
 @app.route('/dateRange', methods=['GET'])
 @cross_origin(origin='*')
 def dateRange():
@@ -304,6 +312,185 @@ def dateRange():
                     'date':data[6]})
     return jsonify(list_data)
 
+"""Wybór N wartości
+"""
+@app.route('/sensorsN', methods=['GET'])
+@cross_origin(origin='*')
+def sensorsN():
+    auth = request.authorization
+    if(not auth):
+        return jsonify({'info' : 'Nie przesłałeś danych auth'})
+    login = auth.username
+    if(not login):
+        return jsonify({'info' : 'Brak loginu'})
+    try:
+        token = int(request.headers.get('Authentication'))
+    except (TypeError, ValueError):
+        return jsonify({'info' : 'Niepoprawny typ danych Authentication'})
+    # Połączenia z baza danych
+    db=MySQLdb.connect(host='localhost', user='piecia', passwd='piecia1', db='home')
+    cur=db.cursor()
+    #Sprawdzenie poprawności danych
+    checkUser = checkUserToken(cur,login,token)
+    if(not checkUser):
+        cur.close()
+        db.close()
+        return jsonify({'info' : 'Niepoprawny login lub token'})
+    # Jeżeli wszystko oki zwróć dane
+    many = request.args.get("many")
+    try:
+        many = int(many)
+    except (TypeError,ValueError):
+        return jsonify({'info' : 'Niepoprawny typ danych'})
+    query = 'SELECT * FROM sensors ORDER BY save_data DESC LIMIT %s'
+    cur.execute(query,(many,))
+    sensors_data = cur.fetchall()
+    list_data=list()
+    for data in sensors_data:
+        list_data.append({'pressure': data[0], 'dampness':data[1],'temperature':data[2],
+                    'lightIntensity1':data[3],'lightIntensity2':data[4],'distance':data[5],
+                    'date':data[6]})
+    cur.close()
+    db.close()
+    return jsonify(list_data)
+
+""" Wybór czujników oraz liczby danych
+"""
+@app.route('/chooseSensorsN', methods=['GET'])
+@cross_origin(origin='*')
+def chooseSensorsN():
+    auth = request.authorization
+    if(not auth):
+        return jsonify({'info' : 'Nie przesłałeś danych auth'})
+    login = auth.username
+    if(not login):
+        return jsonify({'info' : 'Brak loginu'})
+    try:
+        token = int(request.headers.get('Authentication'))
+    except (TypeError, ValueError):
+        return jsonify({'info' : 'Niepoprawny typ danych Authentication'})
+    # Połączenia z baza danych
+    db=MySQLdb.connect(host='localhost', user='piecia', passwd='piecia1', db='home')
+    cur=db.cursor()
+    #Sprawdzenie poprawności danych
+    checkUser = checkUserToken(cur,login,token)
+    if(not checkUser):
+        cur.close()
+        db.close()
+        return jsonify({'info' : 'Niepoprawny login lub token'})
+    # Jeżeli wszystko oki zwróć dane
+    
+    many = request.args.get("many")
+    try:
+        many = int(many)
+    except (TypeError,ValueError):
+        return jsonify({'info' : 'Niepoprawny typ danych'})
+    #Pobranie z bazy danych
+    query = 'SELECT * FROM sensors ORDER BY save_data DESC LIMIT %s'
+    cur.execute(query,(many,))
+    sensors_data = cur.fetchall()
+    params = request.args
+    list_data=list()
+    for data in sensors_data:
+        sensor_dict=dict()
+        for key, value in params.items():
+            if(key == "pressure"):
+                sensor_dict.update({'pressure' : data[0]})
+            elif(key == "dampness"):
+                sensor_dict.update({'dampness' : data[1]})
+            elif(key == "temperature"):
+                sensor_dict.update({'temperature' : data[2]})
+            elif(key == "lightIntensity1"):
+                sensor_dict.update({'lightIntensity1' : data[3]})
+            elif(key == "lightIntensity2"):
+                sensor_dict.update({'lightIntensity2' : data[4]})
+            elif(key == "distance"):
+                sensor_dict.update({'distance' : data[5]})
+            elif(key == "date"):
+                sensor_dict.update({'date' : data[6]})
+        list_data.append(sensor_dict)
+    cur.close()
+    db.close()
+    return jsonify(list_data)
+
+"""Wybór czujników oraz daty
+"""
+@app.route('/chooseSensorsDate', methods=['GET'])
+@cross_origin(origin='*')
+def chooseSensorsDate():
+    auth = request.authorization
+    if(not auth):
+        return jsonify({'info' : 'Nie przesłałeś danych auth'})
+    login = auth.username
+    if(not login):
+        return jsonify({'info' : 'Brak loginu'})
+    try:
+        token = int(request.headers.get('Authentication'))
+    except (TypeError, ValueError):
+        return jsonify({'info' : 'Niepoprawny typ danych Authentication'})
+    # Połączenia z baza danych
+    db=MySQLdb.connect(host='localhost', user='piecia', passwd='piecia1', db='home')
+    cur=db.cursor()
+    #Sprawdzenie poprawności danych
+    checkUser = checkUserToken(cur,login,token)
+    if(not checkUser):
+        cur.close()
+        db.close()
+        return jsonify({'info' : 'Niepoprawny login lub token'})
+    # Jeżeli wszystko oki zwróć dane
+    params = request.args
+    startTime, endTime = False, False 
+    for key, value in params.items():
+        if(key == "startTime"):
+            try:
+                startTime = datetime.datetime.strptime(value,"%a, %d %b %Y %H:%M:%S %Z")
+            except ValueError:
+                return jsonify({'info' : 'Niepoprawny format daty'})
+        elif(key == "endTime"):
+            try:
+                endTime = datetime.datetime.strptime(value,"%a, %d %b %Y %H:%M:%S %Z")
+            except ValueError:
+                return jsonify({'info' : 'Niepoprawny format daty'})
+    if((not startTime) and (not endTime)):
+        query = 'select * from sensors'
+        cur.execute(query)
+        sensors_data = cur.fetchall()
+    elif(startTime and (not endTime)):
+        query = 'select * from sensors where save_data >= %s'
+        cur.execute(query, (startTime,))
+        sensors_data = cur.fetchall()
+    elif((not startTime) and endTime):
+        query = 'select * from sensors where save_data <= %s'
+        cur.execute(query, (endTime,))
+        sensors_data = cur.fetchall()
+    else:
+        query = 'select * from sensors where save_data >= %s AND save_data <= %s'
+        cur.execute(query, (startTime, endTime))
+        sensors_data = cur.fetchall()
+        
+    list_data=list()
+    for data in sensors_data:
+        sensor_dict=dict()
+        for key, value in params.items():
+            if(key == "pressure"):
+                sensor_dict.update({'pressure' : data[0]})
+            elif(key == "dampness"):
+                sensor_dict.update({'dampness' : data[1]})
+            elif(key == "temperature"):
+                sensor_dict.update({'temperature' : data[2]})
+            elif(key == "lightIntensity1"):
+                sensor_dict.update({'lightIntensity1' : data[3]})
+            elif(key == "lightIntensity2"):
+                sensor_dict.update({'lightIntensity2' : data[4]})
+            elif(key == "distance"):
+                sensor_dict.update({'distance' : data[5]})
+            elif(key == "date"):
+                sensor_dict.update({'date' : data[6]})
+        list_data.append(sensor_dict)
+    cur.close()
+    db.close()
+    return jsonify(list_data)
+
 def checkUserByLogin(cur,login):
     login = login
     query = 'select * from home_user where name = %s'
@@ -332,12 +519,4 @@ def checkUserToken(cur,login, token):
     else:
         return False
 
-"""
-prev_day = datetime.datetime.now()
-while 1:
-buf = list(map(float,ser.readline().split()))
-now = datetime.datetime.now()
-formatted_date = now.strftime('%Y-%m-%d %H:%M:%S')
-c.execute()
-#db.commit()
-"""
+
